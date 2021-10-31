@@ -1,0 +1,87 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int dd, mm, yy;		//dd: ngày, mm: tháng, yy: năm;
+	cout << "Nhap ngay thang nam:\t";
+	cin >> dd >> mm >> yy;
+
+	int dd1, mm1, yy1;	// biến tạm;
+	dd1 = dd;
+	mm1 = mm;
+	yy1 = yy;
+
+	if (mm == 2)
+	{	
+		if (dd >= 30)
+		{
+			cout << "Ngay thang nam khong hop le!";
+			return 0;
+		}
+		if ((yy % 400 == 0) || ((yy % 4 == 0) && (yy % 100 != 0)))	// Xét năm nhuận
+			if (dd == 29)
+			{
+				dd1 = 1;
+				mm1++;
+			}
+			else dd1++;
+		else if (dd > 28)
+		{
+			cout << "Ngay thang nam khong hop le!";
+			return 0;
+		}
+		else if (dd == 28)
+		{
+			dd1 = 1;
+			mm1++;
+		}
+		else dd1++;
+	}
+	else if ((mm == 4) || (mm == 6) || (mm == 9) || (mm == 11))		
+	{
+		if (dd > 30)			// Những tháng có 30 ngày;
+		{
+			cout << "Ngay thang nam khong hop le!";
+			return 0;
+		}
+		else if (dd == 30)
+		{
+			dd1 = 1;
+			mm1++;
+		}
+		else dd1++;
+	}
+	else if (mm == 12)				// Tháng cuối năm;
+	{
+		if (dd > 31)
+		{
+			cout << "Ngay thang nam khong hop le!";
+			return 0;
+		}
+		else if (dd == 31)
+		{
+			dd1 = 1;
+			mm1 = 1;
+			yy1++;			// Happy Newyear!!!
+		}
+		else dd1++;
+	}
+	else			// Tháng có 31 ngày;
+	{
+		if (dd > 31)
+		{
+			cout << "Ngay thang nam khong hop le!";
+			return 0;
+		}
+		else if (dd == 31)
+		{
+			dd1 = 1;
+			mm1++;
+		}
+		else dd1++;
+	}
+
+	cout << "Ngay tiep theo la:\t" << dd1 << " " << mm1 << " " << yy1;
+}
