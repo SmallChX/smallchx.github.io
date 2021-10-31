@@ -84,4 +84,5 @@ int main()
 	}
 
 	cout << "Ngay tiep theo la:\t" << dd1 << " " << mm1 << " " << yy1;
+	return 0;
 }
